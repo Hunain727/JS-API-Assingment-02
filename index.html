@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="main-container">
+        <!-- Auth Section -->
+        <div id="auth-section">
+            <h2 id="auth-title">Sign In</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone Number" class="auth-extra hidden">
+            <input type="text" id="city" placeholder="City" class="auth-extra hidden">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handleAuth()">Submit</button>
+            <div id="auth-message" class="message hidden"></div>
+            <p onclick="toggleAuth()" style="cursor:pointer; color: var(--primary-color); font-size: 0.9rem; margin-top: 10px;">
+                Don't have an account? Sign Up
+            </p>
+        </div>
+
+        <!-- Student Info Section -->
+        <div id="info-section" class="hidden">
+            <h2>Student Information</h2>
+            <input type="text" id="student-name" placeholder="Full Name">
+            <input type="text" id="student-roll" placeholder="Roll Number">
+            <input type="text" id="student-cnic" placeholder="CNIC Number (e.g. 12345-1234567-1)">
+            <select id="quiz-subject">
+                <option value="">Select Quiz Subject</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+            </select>
+            <button onclick="startQuiz()">Start Quiz</button>
+            <div id="info-message" class="message hidden"></div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-section" class="hidden">
+            <h2 id="subject-title">Quiz</h2>
+            <div id="question-container">
+                <p id="question-text" style="font-weight: bold;"></p>
+                <div id="options-list"></div>
+            </div>
+            <div id="quiz-controls">
+                <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+            </div>
+            <div id="progress" style="margin-top: 15px; font-size: 0.8rem;"></div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="result-section" class="hidden">
+            <h2>Quiz Result</h2>
+            <div id="result-area"></div>
+            <button onclick="backToInfoSection()" style="margin-top: 15px;">Back to Quiz Selection</button>
+            <button onclick="location.reload()">Restart</button>
+        </div>
+
+        <!-- Celebration Overlay -->
+        <div id="celebration-overlay" class="hidden">
+            <div class="celebration-content">
+                <div class="trophy-icon">🏆</div>
+                <h1 id="celebration-title">Well Done!</h1>
+                <p id="celebration-msg"></p>
+                <button onclick="closeCelebration()">View Detailed Result</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
